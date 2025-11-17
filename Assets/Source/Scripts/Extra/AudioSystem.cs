@@ -22,7 +22,8 @@ public class AudioSystem : MonoBehaviour
         string paramName = "Volume" + audioMixerGroup.name;
         float maxValue = 1f;
         float minValue = 0.0001f;
-        audioMixerGroup.audioMixer.SetFloat(paramName, Mathf.Log10(Mathf.Clamp(value, minValue, maxValue)));
+        float multiplyer = 20f;
+        audioMixerGroup.audioMixer.SetFloat(paramName, Mathf.Log10(Mathf.Clamp(value, minValue, maxValue)) * multiplyer);
         
     }
 
