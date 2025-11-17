@@ -23,8 +23,7 @@ public class AudioSystem : MonoBehaviour
         float maxValue = 1f;
         float minValue = 0.0001f;
         float multiplyer = 20f;
-        audioMixerGroup.audioMixer.SetFloat(paramName, Mathf.Log10(Mathf.Clamp(value, minValue, maxValue)) * multiplyer);
-        
+        audioMixerGroup.audioMixer.SetFloat(paramName, Mathf.Log10(Mathf.Clamp(value, minValue, maxValue)) * multiplyer); 
     }
 
     public void ToggleAudio()
