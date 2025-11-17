@@ -27,4 +27,19 @@ public class UIBootstrap : MonoBehaviour
 
         _button.onClick.AddListener(_audioSystem.ToggleAudio);
     }
+
+    private void OnDestroy()
+    {
+        foreach (var soundButton in _soundButtons)
+        {
+            soundButton.ButtonPressed -= _audioSystem.PlaySound;
+        }
+
+        foreach (var menuItem in _menuItems)
+        {
+            menuItem.VolumeChaged -= _audioSystem.SetVolume;
+        }
+
+        _button.onClick.RemoveAllListeners();
+    }
 }

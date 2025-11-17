@@ -29,5 +29,6 @@ public class AudioSystem : MonoBehaviour
     public void ToggleAudio()
     {
         _musicAudioSource.mute = !_musicAudioSource.mute;
+        _soundAudioSource.mute = !_soundAudioSource.mute;
     }
 }
