@@ -20,9 +20,10 @@ public class AudioSystem : MonoBehaviour
     public void SetVolume(float value, AudioMixerGroup audioMixerGroup)
     {
         string paramName = "Volume" + audioMixerGroup.name;
-        float maxValue = -80f;
-        float minValue = 0f;
-        audioMixerGroup.audioMixer.SetFloat(paramName, Mathf.Lerp(maxValue, minValue, value));
+        float maxValue = 1f;
+        float minValue = 0.0001f;
+        audioMixerGroup.audioMixer.SetFloat(paramName, Mathf.Log10(Mathf.Clamp(value, minValue, maxValue)));
+        
     }
 
     public void ToggleAudio()
