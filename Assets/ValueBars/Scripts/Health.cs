@@ -12,15 +12,9 @@ public class Health : MonoBehaviour
     public event Action<float> HealthIncreased;
     public event Action<float> HealthDecreased;
 
-    public void IncreaseHealth(float value)
+    public void ChangeCurrent(float value)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, _maxHealth);
         HealthIncreased?.Invoke(_currentHealth);
-    }
-
-    public void DecreaseHealth(float value)
-    {
-        _currentHealth = Mathf.Clamp(_currentHealth - value, 0, _maxHealth);
-        HealthDecreased?.Invoke(_currentHealth);
     }
 }
